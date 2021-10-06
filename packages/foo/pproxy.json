@@ -1,0 +1,21 @@
+{
+  "packageName": "foo",
+  "root": "src/",
+  "types": "lib",
+  "proxify": [
+    {
+      "src": "components"
+    },
+    {
+      "src": "bar",
+      "dest": "bar",
+      "types": "test"
+    },
+    {
+      "src": "helpers",
+      "dest": "helpers",
+      "proxyType": "file",
+      "esm": null
+    }
+  ]
+}

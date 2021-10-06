@@ -1,0 +1,64 @@
+{
+  "name": "package-proxy",
+  "version": "0.0.0",
+  "description": "Proxify your npm package for easier imports",
+  "bin": {
+    "package-proxy": "bin/index.js",
+    "proxify": "bin/index.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "start": "nodemon --watch 'src/**/*.ts' --exec ts-node src/index.ts",
+    "build": "rimraf ./lib && tsc -p ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sl-julienamblard/package-proxy.git"
+  },
+  "keywords": [
+    "cli",
+    "package-proxy",
+    "package",
+    "proxy",
+    "proxify"
+  ],
+  "author": "Julien Amblard",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sl-julienamblard/package-proxy/issues"
+  },
+  "homepage": "https://github.com/sl-julienamblard/package-proxy#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.15.4",
+    "@babel/core": "^7.15.5",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.15.4",
+    "@babel/preset-typescript": "^7.15.0",
+    "@babel/register": "^7.15.3",
+    "@types/co": "^4.6.3",
+    "@types/events": "^3.0.0",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.9.1",
+    "@types/rimraf": "^3.0.2",
+    "babel-jest": "^27.1.0",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "babel-preset-minify": "^0.5.1",
+    "chalk": "^4.1.2",
+    "co": "^4.6.0",
+    "co-prompt": "^1.0.0",
+    "commander": "^8.2.0",
+    "cross-env": "^7.0.3",
+    "jest": "^27.1.0",
+    "nodemon": "^2.0.13",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.2",
+    "yargs": "^17.2.1"
+  },
+  "dependencies": {
+    "esm": "^3.2.25"
+  }
+}
