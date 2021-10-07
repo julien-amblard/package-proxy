@@ -27,7 +27,7 @@ export const createProxy = (settings: Settings): void => {
         settings: _settings,
       })
 
-      writeFile(data, cleanedFileName, destPath, () => {
+      writeFile(data, destPath, () => {
         console.log(
           `${chalk.bold.green(cleanedFileName)} ${chalk.italic(
             "package proxy created"

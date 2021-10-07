@@ -11,6 +11,7 @@ module.exports = {
   moduleDirectories: ["node_modules", "<rootDir>src/"],
   moduleFileExtensions: ["js", "json", "ts", "node"],
   coverageDirectory: "<rootDir>/coverage",
+  modulePathIgnorePatterns: ["writeTest"],
   testPathIgnorePatterns: [
     "<rootDir>node_modules/",
     "<rootDir>coverage/",

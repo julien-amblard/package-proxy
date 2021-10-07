@@ -4,7 +4,7 @@ import { Command } from "commander"
 import chalk from "chalk"
 import { loadJSON } from "./utils/loadJSON"
 import { createProxy } from "./createProxy"
-import { cleanProxy } from "./cleanProxy"
+import { cliClean } from "./cleanProxy"
 
 const defaultConfigName = "./pproxy.json"
 
@@ -33,9 +33,6 @@ program
   .command("clean")
   .description("Clean your module proxy's")
   .option("-c, --config <path>", "set config path", defaultConfigName)
-  .action(options => {
-    const { proxify, root = "", ...rest } = loadJSON(options)
-    proxify.forEach(toProxify => cleanProxy({ root, ...rest, ...toProxify }))
-  })
+  .action(cliClean)
 
 program.parse(process.argv)

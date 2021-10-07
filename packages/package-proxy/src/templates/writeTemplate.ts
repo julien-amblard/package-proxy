@@ -1,7 +1,7 @@
 /** @format */
 import { PackageJSONModel, Settings } from "../types"
 import { getPath } from "../utils/buildPath"
-import { filterTruthy } from "../utils/filters"
+import { buildRoot } from "../utils/buildRoot"
 
 export const writeTemplate = ({
   name,
@@ -12,12 +12,7 @@ export const writeTemplate = ({
   dest: string
   settings: Settings
 }) => {
-  const root = dest
-    .split("/")
-    .filter(v => v != ".")
-    .filter(filterTruthy)
-    .map(() => "..")
-    .join("/")
+  const root = buildRoot(dest)
 
   const packageJSON: PackageJSONModel = {
     name: getPath([settings.packageName, dest.replace("./", "")]),
@@ -27,7 +22,7 @@ export const writeTemplate = ({
   const fileType = settings.proxyType === "file" ? ".js" : "/index.js"
   const tsFileType = settings.proxyType === "file" ? ".d.js" : "/index.d.js"
 
-  const filePath = `${root}/{dir}/${settings.src}/${name}{file}`
+  const filePath = `${root}{dir}/${settings.src}/${name}{file}`
 
   if (settings.cjs)
     packageJSON.main = filePath

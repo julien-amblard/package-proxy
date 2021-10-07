@@ -2,7 +2,7 @@
 
 import { getDirectories } from "../getDirectories"
 
-const source = __dirname + "/mocks/readDirTest"
+const source = __dirname + "/../../mocks/findDirAndFileTest"
 const ignore = ["foo", "oof"]
 
 describe("utils/getDirectories", () => {

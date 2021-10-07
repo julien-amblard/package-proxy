@@ -1,0 +1,16 @@
+{
+  "proxify": [
+    {
+      "src": "components"
+    },
+    {
+      "src": "bar",
+      "dest": "bar"
+    },
+    {
+      "src": "helpers",
+      "dest": "helpers",
+      "proxyType": "file"
+    }
+  ]
+}
