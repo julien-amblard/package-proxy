@@ -1,6 +1,6 @@
 /** @format */
 
-import { Settings } from "types"
+import { Settings } from "../types"
 import { getDirectories } from "./getDirectories"
 import { getFiles } from "./getFiles"
 
@@ -11,5 +11,5 @@ export const findFiles = ({
   ignore,
 }: Settings): string[] =>
   proxyType === "file"
-    ? getFiles(`${root}${src}`)
+    ? getFiles(`${root}${src}`, ignore)
     : getDirectories(`${root}${src}`, ignore)

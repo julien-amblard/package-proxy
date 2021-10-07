@@ -1,29 +1,31 @@
 {
-	"name": "root",
-	"private": true,
-	"workspaces": [
-		"packages/*"
-	],
-	"description": "Proxify your npm package for easier imports",
-	"scripts": {
-		"build": "yarn workspace package-proxy run build",
-		"proxify": "yarn run build && yarn workspace foo run proxify",
-		"empty": "yarn run build && yarn workspace foo run proxify:empty",
-		"error": "yarn run build && yarn workspace foo run proxify:error",
-		"help": "yarn run build && yarn workspace foo run proxify:help",
-		"clean": "yarn run build && yarn workspace foo run proxify:clean"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/sl-julienamblard/package-proxy.git"
-	},
-	"author": "Julien Amblard",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/sl-julienamblard/package-proxy/issues"
-	},
-	"homepage": "https://github.com/sl-julienamblard/package-proxy#readme",
-	"dependencies": {
-		"lerna": "^4.0.0"
-	}
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "description": "Proxify your npm package for easier imports",
+  "scripts": {
+    "build": "yarn workspace package-proxy run build",
+    "proxify": "yarn build && yarn workspace foo run proxify",
+    "empty": "yarn build && yarn workspace foo run proxify:empty",
+    "error": "yarn build && yarn workspace foo run proxify:error",
+    "help": "yarn build && yarn workspace foo run proxify:help",
+    "clean": "yarn build && yarn workspace foo run proxify:clean",
+    "test": "yarn workspace package-proxy test",
+    "ci": "yarn build && yarn workspace package-proxy test:ci"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sl-julienamblard/package-proxy.git"
+  },
+  "author": "Julien Amblard",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sl-julienamblard/package-proxy/issues"
+  },
+  "homepage": "https://github.com/sl-julienamblard/package-proxy#readme",
+  "dependencies": {
+    "lerna": "^4.0.0"
+  }
 }

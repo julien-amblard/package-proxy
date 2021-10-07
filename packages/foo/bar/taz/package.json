@@ -1,0 +1,7 @@
+{
+	"name": "foo/bar/taz",
+	"private": true,
+	"main": "../../lib/bar/taz/index.js",
+	"module": "../../esm/bar/taz/index.js",
+	"types": "../../test/bar/taz/index.d.js"
+}

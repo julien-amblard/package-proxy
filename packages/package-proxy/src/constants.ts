@@ -1,6 +1,6 @@
 /** @format */
 
-import { DefaultSettings } from "types"
+import { DefaultSettings } from "./types"
 
 export const DEFAULT_SETTINGS: DefaultSettings = {
   dest: ".",

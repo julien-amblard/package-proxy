@@ -1,6 +1,7 @@
 /** @format */
 
-import { Settings } from "types"
+import chalk from "chalk"
+import { Settings } from "./types"
 import { filterIndex, filterJSON } from "./utils/filters"
 import { DEFAULT_SETTINGS } from "./constants"
 import { findFiles } from "./utils/findFiles"
@@ -27,7 +28,11 @@ export const createProxy = (settings: Settings): void => {
       })
 
       writeFile(data, cleanedFileName, destPath, () => {
-        console.log(`🎉 ${cleanedFileName} package proxy created`)
+        console.log(
+          `${chalk.bold.green(cleanedFileName)} ${chalk.italic(
+            "package proxy created"
+          )} 🎉`
+        )
       })
     })
 }

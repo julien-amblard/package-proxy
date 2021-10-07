@@ -1,5 +1,5 @@
 /** @format */
-import { PackageJSONModel, Settings } from "types"
+import { PackageJSONModel, Settings } from "../types"
 import { getPath } from "../utils/buildPath"
 import { filterTruthy } from "../utils/filters"
 

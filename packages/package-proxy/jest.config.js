@@ -1,18 +1,20 @@
 /** @format */
-const { defaults } = require("jest-config")
 
 module.exports = {
-  testEnvironment: "jsdom",
+  preset: "ts-jest",
   rootDir: ".",
-  transform: {
-    "^.+\\.[jt]sx?$": "babel-jest",
-  },
   verbose: true,
-  coverageDirectory: "<rootDir>/coverage/",
-  collectCoverageFrom: ["src/**/*.+(ts|tsx)"],
-  testRegex: "(/(__)?tests(__)?/.*|(\\.|/)(test|spec))\\.[jt]sx?$",
-  setupFilesAfterEnv: ["<rootDir>/jest.customSetup.ts"],
+  setupFiles: ["./jest.setup.js"],
   moduleNameMapper: {
-    "^_(.*)$": ["<rootDir>/src/$1"],
+    "\\.(css|less|scss|sss|styl)$": "<rootDir>node_modules/jest-css-modules",
   },
+  moduleDirectories: ["node_modules", "<rootDir>src/"],
+  moduleFileExtensions: ["js", "json", "ts", "node"],
+  coverageDirectory: "<rootDir>/coverage",
+  testPathIgnorePatterns: [
+    "<rootDir>node_modules/",
+    "<rootDir>coverage/",
+    "<rootDir>lib/",
+    "<rootDir>src/utils/__tests__/mocks/writeTest/",
+  ],
 }

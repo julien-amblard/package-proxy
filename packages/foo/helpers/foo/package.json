@@ -1,0 +1,6 @@
+{
+	"name": "foo/helpers/foo",
+	"private": true,
+	"main": "../../lib/helpers/foo.js",
+	"types": "../../lib/helpers/foo.d.js"
+}

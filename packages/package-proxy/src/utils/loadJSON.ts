@@ -1,7 +1,7 @@
 /** @format */
 
 import fs from "fs"
-import { JSONConfig } from "types"
+import { JSONConfig } from "../types"
 
 export const loadJSON = ({ config: path }: { config: string }): JSONConfig => {
   try {

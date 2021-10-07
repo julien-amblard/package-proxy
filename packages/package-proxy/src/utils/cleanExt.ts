@@ -1,6 +1,6 @@
 /** @format */
 
-import { ProxyType } from "types"
+import { ProxyType } from "../types"
 
 export const cleanExt = (name: string, type: ProxyType): string => {
   if (type === "folder") return name
