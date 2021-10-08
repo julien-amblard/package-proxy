@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "package test for package proxy",
   "scripts": {
-    "build": "tsc && yarn proxify",
+    "build": " tsc -p . && yarn proxify",
     "proxify": "proxify write",
     "proxify:empty": "proxify",
     "proxify:error": "proxify --error",
