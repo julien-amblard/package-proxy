@@ -4,7 +4,6 @@ module.exports = {
   preset: "ts-jest",
   rootDir: ".",
   verbose: true,
-  setupFiles: ["./jest.setup.js"],
   moduleNameMapper: {
     "\\.(css|less|scss|sss|styl)$": "<rootDir>node_modules/jest-css-modules",
   },

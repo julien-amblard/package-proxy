@@ -1,5 +1,5 @@
+#!/usr/bin/env node
 /** @format */
-
 import { Command } from "commander"
 import chalk from "chalk"
 import { loadJSON } from "./utils/loadJSON"

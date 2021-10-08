@@ -9,22 +9,19 @@ import { loadJSON } from "./utils/loadJSON"
 import { DEFAULT_SETTINGS } from "./constants"
 import chalk from "chalk"
 
-const logIt = (file: string) => console.log(chalk.green.bold(`${file} removed`))
+export const deleteFolder = (dest: string) => {
+  rimraf.sync(dest)
+  console.log(chalk.green.bold(`${dest} removed`))
+}
 
 export const cleanProxy = (settings: Settings): void => {
-  const _settings = { ...DEFAULT_SETTINGS, ...settings }
-
-  if (!!settings.dest) {
-    rimraf.sync(`./${settings.dest}`)
-    logIt(settings.dest)
-  } else {
-    findFiles(settings)
+  if (!!settings.dest) deleteFolder(`./${settings.dest}`)
+  else {
+    const _settings = { ...DEFAULT_SETTINGS, ...settings }
+    findFiles(_settings)
       .filter(filterIndex)
-      .forEach(fileName => {
-        const cleanedFileName = cleanExt(fileName, _settings.proxyType)
-        rimraf.sync(`./${cleanedFileName}`)
-        logIt(fileName)
-      })
+      .map(file => `./${cleanExt(file, _settings.proxyType)}`)
+      .forEach(deleteFolder)
   }
 }
 
