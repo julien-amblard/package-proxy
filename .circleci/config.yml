@@ -90,7 +90,7 @@ jobs:
           name: Run tests
           command: yarn workspace package-proxy run test:ci
       - store_artifacts:
-          path: packages/packages-proxy/coverage/lcov-report
+          path: packages/package-proxy/coverage/lcov-report
       - run:
           name: Report coverage
           command: yarn workspace package-proxy run test:report
