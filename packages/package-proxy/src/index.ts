@@ -1,38 +1,24 @@
 #!/usr/bin/env node
 /** @format */
 import { Command } from "commander"
-import chalk from "chalk"
-import { loadJSON } from "./utils/loadJSON"
-import { createProxy } from "./createProxy"
+import { cliCreate } from "./createProxy"
 import { cliClean } from "./cleanProxy"
-
-const defaultConfigName = "./pproxy.json"
+import { PACKAGE_DESC, DEFAULT_CONFIG_PATH } from "./constants"
 
 const program = new Command()
 program.showHelpAfterError()
-program.name("proxify").usage("write").description(`
-  ${chalk.bold("Proxify your packages modules.")}
-
-  Help you to proxify your module in root project.
-  So users can do import like this :
-    ${chalk.italic('import Foo from "package"')}
-  instead of :
-    ${chalk.italic('import Foo from "package/lib/foo"')}
-    `)
+program.name("proxify").usage("write").description(PACKAGE_DESC)
 
 program
   .command("write", { isDefault: true })
   .description("Create your module proxy's")
-  .option("-c, --config <path>", "set config path", defaultConfigName)
-  .action(options => {
-    const { proxify, root = "", ...rest } = loadJSON(options)
-    proxify.forEach(toProxify => createProxy({ root, ...rest, ...toProxify }))
-  })
+  .option("-c, --config <path>", "set config path", DEFAULT_CONFIG_PATH)
+  .action(cliCreate)
 
 program
   .command("clean")
   .description("Clean your module proxy's")
-  .option("-c, --config <path>", "set config path", defaultConfigName)
+  .option("-c, --config <path>", "set config path", DEFAULT_CONFIG_PATH)
   .action(cliClean)
 
 program.parse(process.argv)
