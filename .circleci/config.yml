@@ -139,7 +139,7 @@ workflows:
     jobs:
       - tests:
           <<: *canary_tag_filter
-       - build:
+      - build:
           <<: *canary_tag_filter
       - require-publish:
           type: approval
