@@ -55,7 +55,7 @@ aliases:
         - .
 
 jobs:
-  build:
+  build-all:
     <<: *defaults
     steps:
       - checkout
@@ -75,7 +75,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
       - *persist
 
-  tests:
+  tests-package-proxy:
     <<: *defaults
     steps:
       - checkout
@@ -125,22 +125,22 @@ workflows:
   version: 2
   integration:
     jobs:
-      - build:
+      - build-all:
           <<: *test_tag_filter
-      - tests:
+      - tests-package-proxy:
           <<: *test_tag_filter
 
   test-publish-canary:
     jobs:
-      - tests:
+      - tests-package-proxy:
           <<: *canary_tag_filter
-      - build:
+      - build-all:
           <<: *canary_tag_filter
       - require-publish:
           type: approval
           requires:
-            - tests
-            - build
+            - tests-package-proxy
+            - build-all
           <<: *canary_tag_filter
       - publish-canary:
           context: personal_packages_vars
@@ -150,15 +150,15 @@ workflows:
 
   test-publish:
     jobs:
-      - build:
+      - build-all:
           <<: *prod_tag_filter
-      - tests:
+      - tests-package-proxy:
           <<: *prod_tag_filter
       - require-publish:
           type: approval
           requires:
-            - tests
-            - build
+            - tests-package-proxy
+            - build-all
           <<: *prod_tag_filter
       - publish:
           context: personal_packages_vars
