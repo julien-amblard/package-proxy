@@ -4,7 +4,7 @@
 
 proxify your npm package for easier imports
 
-TODO:
+**TODO**:
 
 - [ ] test clean proxy
 - [ ] test write proxy
