@@ -65,7 +65,7 @@ jobs:
             - v1-dependencies-
       - run:
           name: Install dependencies
-          command: yarn install --no-lockfile
+          command: yarn install
       - run:
           name: Run build
           command: yarn build
@@ -85,7 +85,7 @@ jobs:
             - v1-dependencies-
       - run:
           name: Install dependencies
-          command: yarn install --no-lockfile
+          command: yarn install
       - run:
           name: Run tests
           command: yarn workspace package-proxy run test:ci
@@ -94,11 +94,6 @@ jobs:
       - run:
           name: Report coverage
           command: yarn workspace package-proxy run test:report
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-      - *persist
 
   publish-canary:
     <<: *defaults
