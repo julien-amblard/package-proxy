@@ -55,6 +55,26 @@ aliases:
         - .
 
 jobs:
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - run:
+          name: Install dependencies
+          command: yarn install --no-lockfile
+      - run:
+          name: Run build
+          command: yarn build
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - *persist
+
   tests:
     <<: *defaults
     steps:
@@ -74,9 +94,6 @@ jobs:
       - run:
           name: Report coverage
           command: yarn workspace package-proxy run test:report
-      - run:
-          name: Run build
-          command: yarn build
       - save_cache:
           paths:
             - node_modules
@@ -111,8 +128,10 @@ jobs:
 
 workflows:
   version: 2
-  tests:
+  integration:
     jobs:
+      - build:
+          <<: *test_tag_filter
       - tests:
           <<: *test_tag_filter
 
@@ -120,10 +139,13 @@ workflows:
     jobs:
       - tests:
           <<: *canary_tag_filter
+       - build:
+          <<: *canary_tag_filter
       - require-publish:
           type: approval
           requires:
             - tests
+            - build
           <<: *canary_tag_filter
       - publish-canary:
           context: personal_packages_vars
@@ -133,12 +155,15 @@ workflows:
 
   test-publish:
     jobs:
+      - build:
+          <<: *prod_tag_filter
       - tests:
           <<: *prod_tag_filter
       - require-publish:
           type: approval
           requires:
             - tests
+            - build
           <<: *prod_tag_filter
       - publish:
           context: personal_packages_vars
