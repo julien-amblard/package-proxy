@@ -1,7 +1,0 @@
-{
-	"name": "foo/ComponentA",
-	"private": true,
-	"main": "../lib/components/ComponentA/index.js",
-	"module": "../esm/components/ComponentA/index.js",
-	"types": "../lib/components/ComponentA/index.d.js"
-}

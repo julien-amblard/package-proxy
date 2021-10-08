@@ -68,7 +68,7 @@ jobs:
           command: yarn install
       - run:
           name: Run build
-          command: yarn build
+          command: yarn build:ci
       - save_cache:
           paths:
             - node_modules

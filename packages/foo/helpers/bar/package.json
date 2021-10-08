@@ -1,6 +1,0 @@
-{
-	"name": "foo/helpers/bar",
-	"private": true,
-	"main": "../../lib/helpers/bar.js",
-	"types": "../../lib/helpers/bar.d.js"
-}

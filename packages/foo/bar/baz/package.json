@@ -1,7 +1,0 @@
-{
-	"name": "foo/bar/baz",
-	"private": true,
-	"main": "../../lib/bar/baz/index.js",
-	"module": "../../esm/bar/baz/index.js",
-	"types": "../../test/bar/baz/index.d.js"
-}

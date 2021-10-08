@@ -7,6 +7,7 @@
   "description": "Proxify your npm package for easier imports",
   "scripts": {
     "build": "yarn workspace package-proxy run build",
+    "build:ci": "lerna run build",
     "proxify": "yarn build && yarn workspace foo run proxify",
     "empty": "yarn build && yarn workspace foo run proxify:empty",
     "error": "yarn build && yarn workspace foo run proxify:error",
@@ -25,7 +26,7 @@
     "url": "https://github.com/sl-julienamblard/package-proxy/issues"
   },
   "homepage": "https://github.com/sl-julienamblard/package-proxy#readme",
-  "dependencies": {
+  "devDependencies": {
     "lerna": "^4.0.0"
   }
 }

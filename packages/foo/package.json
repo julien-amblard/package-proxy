@@ -1,48 +1,48 @@
 {
-	"name": "foo",
-	"version": "0.0.0",
-	"description": "package test for package proxy",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"proxify": "proxify write",
-		"proxify:empty": "proxify",
-		"proxify:error": "proxify --error",
-		"proxify:clean": "proxify clean",
-		"proxify:help": "proxify --help"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/sl-julienamblard/package-proxy.git"
-	},
-	"author": "Julien Amblard",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/sl-julienamblard/package-proxy/issues"
-	},
-	"homepage": "https://github.com/sl-julienamblard/package-proxy#readme",
-	"dependencies": {
-		"package-proxy": "^0.0.0"
-	},
-	"devDependencies": {
-		"@babel/cli": "^7.15.4",
-		"@babel/core": "^7.15.5",
-		"@babel/polyfill": "^7.12.1",
-		"@babel/preset-env": "^7.15.4",
-		"@babel/preset-typescript": "^7.15.0",
-		"@babel/register": "^7.15.3",
-		"@types/events": "^3.0.0",
-		"@types/jest": "^27.0.1",
-		"@types/node": "^16.9.1",
-		"@types/rimraf": "^3.0.2",
-		"babel-jest": "^27.1.0",
-		"babel-loader": "^8.2.2",
-		"babel-plugin-module-resolver": "^4.1.0",
-		"babel-plugin-styled-components": "^1.13.2",
-		"babel-preset-minify": "^0.5.1",
-		"cross-env": "^7.0.3",
-		"jest": "^27.1.0",
-		"rimraf": "^3.0.2",
-		"ts-node": "^10.2.1",
-		"typescript": "^4.4.2"
-	}
+  "name": "foo",
+  "version": "0.0.0",
+  "description": "package test for package proxy",
+  "scripts": {
+    "build": "tsc && yarn proxify",
+    "proxify": "proxify write",
+    "proxify:empty": "proxify",
+    "proxify:error": "proxify --error",
+    "proxify:clean": "proxify clean",
+    "proxify:help": "proxify --help"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sl-julienamblard/package-proxy.git"
+  },
+  "author": "Julien Amblard",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sl-julienamblard/package-proxy/issues"
+  },
+  "homepage": "https://github.com/sl-julienamblard/package-proxy#readme",
+  "dependencies": {
+    "package-proxy": "^0.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.15.4",
+    "@babel/core": "^7.15.5",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.15.4",
+    "@babel/preset-typescript": "^7.15.0",
+    "@babel/register": "^7.15.3",
+    "@types/events": "^3.0.0",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.9.1",
+    "@types/rimraf": "^3.0.2",
+    "babel-jest": "^27.1.0",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "babel-plugin-styled-components": "^1.13.2",
+    "babel-preset-minify": "^0.5.1",
+    "cross-env": "^7.0.3",
+    "jest": "^27.1.0",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.2"
+  }
 }
