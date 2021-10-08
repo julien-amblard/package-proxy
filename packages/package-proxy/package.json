@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "description": "Proxify your npm package for easier imports",
   "bin": {
-    "package-proxy": "lib/index.js",
-    "proxify": "lib/index.js"
+    "package-proxy": "bin/index.js",
+    "proxify": "bin/index.js"
   },
   "publishConfig": {
     "access": "public"
@@ -61,5 +61,8 @@
     "ts-node": "^10.2.1",
     "typescript": "^4.4.2",
     "yargs": "^17.2.1"
+  },
+  "dependencies": {
+    "esm": "^3.2.25"
   }
 }

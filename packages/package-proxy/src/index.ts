@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /** @format */
 import { Command } from "commander"
 import { cliCreate } from "./createProxy"
