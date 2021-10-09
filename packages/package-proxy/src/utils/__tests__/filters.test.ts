@@ -6,6 +6,10 @@ describe("utils/filters: filterIndex", () => {
   test("should return true", () => {
     expect(filterIndex("foo")).toBe(true)
     expect(filterIndex("index")).toBe(true)
+    expect(filterIndex("iindex.js")).toBe(true)
+    expect(filterIndex("iindex.jsx")).toBe(true)
+    expect(filterIndex("index.jsxx")).toBe(true)
+    expect(filterIndex("index.jss")).toBe(true)
   })
   test("should return false", () => {
     expect(filterIndex("index.js")).toBe(false)
@@ -21,6 +25,7 @@ describe("utils/filters: filterJSON", () => {
     expect(filterJSON("foo")).toBe(true)
     expect(filterJSON("index.ts")).toBe(true)
     expect(filterJSON("index.jso")).toBe(true)
+    expect(filterJSON("index.jsonn")).toBe(true)
   })
   test("should return false", () => {
     expect(filterJSON("index.json")).toBe(false)
