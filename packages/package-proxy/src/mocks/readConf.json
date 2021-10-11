@@ -1,4 +1,5 @@
 {
+  "packageName": "packageName",
   "proxify": [
     {
       "src": "components"
