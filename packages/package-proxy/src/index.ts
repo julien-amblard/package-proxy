@@ -1,7 +1,7 @@
 /** @format */
 import { Command } from "commander"
-import { cliCreate } from "./createProxy"
-import { cliClean } from "./cleanProxy"
+import { cliCreate } from "./cliCreate"
+import { cliClean } from "./cliClean"
 import { PACKAGE_DESC, DEFAULT_CONFIG_PATH } from "./constants"
 
 const program = new Command()

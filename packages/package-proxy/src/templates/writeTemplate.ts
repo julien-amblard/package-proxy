@@ -1,7 +1,6 @@
 /** @format */
 import { PackageJSONModel, Settings } from "../types"
-import { getPath } from "../utils/buildPath"
-import { buildRoot } from "../utils/buildRoot"
+import { getPath, buildRoot } from "../utils"
 
 export const writeTemplate = ({
   name,

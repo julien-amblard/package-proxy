@@ -13,14 +13,6 @@ export type DefaultSettings = {
   proxyType: ProxyType
 } & FolderPath
 
-export type PackageJSONModel = {
-  name: string
-  private: true
-  main?: string
-  module?: string
-  types?: string
-}
-
 export type ProxifyObject = {
   root?: string
   src: string
@@ -29,19 +21,27 @@ export type ProxifyObject = {
   ignore?: string[]
 } & FolderPath
 
+export type Settings = {
+  packageName: string
+  root: string
+} & ProxifyObject &
+  DefaultSettings
+
+export type CleanSettings = {
+  packageName: string
+  root: string
+} & ProxifyObject
+
 export type JSONConfig = {
   packageName: string
   root?: string
   proxify: ProxifyObject[]
 } & FolderPath
 
-export type Settings = {
-  packageName: string
-  root: string
-} & ProxifyObject
-
-export type CleanOptions = {
-  source?: string
-  dest?: string
-  proxyType?: ProxyType
+export type PackageJSONModel = {
+  name: string
+  private: true
+  main?: string
+  module?: string
+  types?: string
 }
