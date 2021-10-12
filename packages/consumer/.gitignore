@@ -4,5 +4,6 @@
 !package.json
 !tsconfig.json
 !pproxy.json
+!jest.config.js
 !.gitignore
 !__tests__
