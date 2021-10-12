@@ -91,25 +91,23 @@ jobs:
       - *attach
       - run:
           name: Run tests
-          command: yarn workspace package-proxy run test:ci
+          command: yarn workspace package-proxy test:ci
       - store_artifacts:
           path: packages/package-proxy/coverage/lcov-report
       - run:
           name: Report coverage
-          command: yarn workspace package-proxy run test:report
+          command: yarn workspace package-proxy test:report
 
   tests-package-consumer:
     <<: *defaults
     steps:
       - *attach
       - run:
-          name: Run tests
-          command: yarn workspace package-proxy run test:ci
-      - store_artifacts:
-          path: packages/package-proxy/coverage/lcov-report
+          name: test proxy create
+          command: yarn workspace consumer test:create
       - run:
-          name: Report coverage
-          command: yarn workspace package-proxy run test:report
+          name: test proxy clean
+          command: yarn workspace consumer test:clean
 
   publish-canary:
     <<: *defaults
