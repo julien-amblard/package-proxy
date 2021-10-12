@@ -8,7 +8,9 @@
     "proxify:empty": "proxify",
     "proxify:error": "proxify --error",
     "proxify:clean": "proxify clean",
-    "proxify:help": "proxify --help"
+    "proxify:help": "proxify --help",
+    "test:create": "proxify && jest --ci create",
+    "test:clean": "yarn proxify:clean && jest --ci clean"
   },
   "repository": {
     "type": "git",

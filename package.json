@@ -14,7 +14,10 @@
     "help": "yarn build && yarn workspace foo run proxify:help",
     "clean": "yarn build && yarn workspace foo run proxify:clean",
     "test": "yarn workspace package-proxy test",
-    "ci": "yarn build && yarn workspace package-proxy test:ci"
+    "test:package-proxy": "yarn workspace package-proxy test:ci",
+    "test:create": "yarn workspace foo test:create",
+    "test:clean": "yarn workspace foo test:clean",
+    "ci": "yarn build && yarn test:package-proxy && yarn test:create && yarn test:clean"
   },
   "repository": {
     "type": "git",
