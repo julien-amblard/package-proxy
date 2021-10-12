@@ -103,6 +103,9 @@ jobs:
     steps:
       - *attach
       - run:
+          name: Run build
+          command: yarn build:ci
+      - run:
           name: test proxy create
           command: yarn workspace consumer test:create
       - run:
@@ -152,7 +155,7 @@ workflows:
       - tests-package-consumer:
           <<: *test_tag_filter
           requires:
-            - build-all
+            - install
 
   publish-canary:
     jobs:
@@ -169,7 +172,7 @@ workflows:
       - tests-package-consumer:
           <<: *canary_tag_filter
           requires:
-            - build-all
+            - install
       - require-publish:
           type: approval
           requires:
