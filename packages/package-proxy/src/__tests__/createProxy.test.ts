@@ -9,6 +9,12 @@ jest.mock("../utils/writeFile", () => ({
   writeFile: mockWriteFile,
 }))
 
+const mockBuildPath = jest.fn()
+jest.mock("../utils/buildPath", () => ({
+  __esModule: true,
+  buildPath: mockBuildPath,
+}))
+
 const mockFindFile = jest.fn()
 jest.mock("../utils/findFiles", () => ({
   __esModule: true,
