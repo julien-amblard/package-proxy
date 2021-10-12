@@ -55,7 +55,7 @@ aliases:
         - .
 
 jobs:
-  build-all:
+  install:
     <<: *defaults
     steps:
       - checkout
@@ -66,6 +66,16 @@ jobs:
       - run:
           name: Install dependencies
           command: yarn install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - *persist
+
+  build-all:
+    <<: *defaults
+    steps:
+      - *attach
       - run:
           name: Run build
           command: yarn build:ci
@@ -78,14 +88,20 @@ jobs:
   tests-package-proxy:
     <<: *defaults
     steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
+      - *attach
       - run:
-          name: Install dependencies
-          command: yarn install
+          name: Run tests
+          command: yarn workspace package-proxy run test:ci
+      - store_artifacts:
+          path: packages/package-proxy/coverage/lcov-report
+      - run:
+          name: Report coverage
+          command: yarn workspace package-proxy run test:report
+
+  tests-package-cosumer:
+    <<: *defaults
+    steps:
+      - *attach
       - run:
           name: Run tests
           command: yarn workspace package-proxy run test:ci
@@ -125,22 +141,43 @@ workflows:
   version: 2
   integration:
     jobs:
+      - install:
+          <<: *test_tag_filter
       - build-all:
           <<: *test_tag_filter
+          requires:
+            - install
       - tests-package-proxy:
           <<: *test_tag_filter
+          requires:
+            - install
+      - tests-package-consumer:
+          <<: *test_tag_filter
+          requires:
+            - build-all
 
-  test-publish-canary:
+  publish-canary:
     jobs:
+      - install:
+          <<: *prod_tag_filter
       - tests-package-proxy:
           <<: *canary_tag_filter
+          requires:
+            - install
       - build-all:
           <<: *canary_tag_filter
+          requires:
+            - install
+      - tests-package-consumer:
+          <<: *canary_tag_filter
+          requires:
+            - build-all
       - require-publish:
           type: approval
           requires:
             - tests-package-proxy
             - build-all
+            - tests-package-consumer
           <<: *canary_tag_filter
       - publish-canary:
           context: personal_packages_vars
@@ -148,17 +185,28 @@ workflows:
             - require-publish
           <<: *canary_tag_filter
 
-  test-publish:
+  publish:
     jobs:
+      - install:
+          <<: *prod_tag_filter
       - build-all:
           <<: *prod_tag_filter
+          requires:
+            - install
       - tests-package-proxy:
           <<: *prod_tag_filter
+          requires:
+            - install
+      - tests-package-proxy:
+          <<: *prod_tag_filter
+          requires:
+            - install
       - require-publish:
           type: approval
           requires:
             - tests-package-proxy
             - build-all
+            - tests-package-consumer
           <<: *prod_tag_filter
       - publish:
           context: personal_packages_vars
