@@ -160,11 +160,11 @@ workflows:
     jobs:
       - install:
           <<: *prod_tag_filter
-      - tests-package-proxy:
+      - build-all:
           <<: *canary_tag_filter
           requires:
             - install
-      - build-all:
+      - tests-package-proxy:
           <<: *canary_tag_filter
           requires:
             - install
@@ -176,8 +176,8 @@ workflows:
           type: approval
           requires:
             - tests-package-proxy
-            - build-all
             - tests-package-consumer
+            - build-all
           <<: *canary_tag_filter
       - publish-canary:
           context: personal_packages_vars
@@ -197,7 +197,7 @@ workflows:
           <<: *prod_tag_filter
           requires:
             - install
-      - tests-package-proxy:
+      - tests-package-consumer:
           <<: *prod_tag_filter
           requires:
             - install
@@ -205,8 +205,8 @@ workflows:
           type: approval
           requires:
             - tests-package-proxy
-            - build-all
             - tests-package-consumer
+            - build-all
           <<: *prod_tag_filter
       - publish:
           context: personal_packages_vars
