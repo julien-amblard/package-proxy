@@ -1,9 +1,9 @@
 /*
 
-!/src
-!package.json
-!tsconfig.json
-!pproxy.json
-!jest.config.js
-!.gitignore
 !__tests__
+!/src
+!.gitignore
+!jest.config.js
+!package.json
+!pproxy.json
+!tsconfig.json
