@@ -121,8 +121,8 @@ jobs:
       - run:
           name: test package client import from proxy
           command: yarn workspace client test
-  
-    fake-publish:
+
+  fake-publish:
     <<: *defaults
     steps:
       - *attach
