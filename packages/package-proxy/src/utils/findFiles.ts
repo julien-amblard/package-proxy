@@ -4,6 +4,8 @@ import { Settings } from "../types"
 import { getDirectories } from "./getDirectories"
 import { getFiles } from "./getFiles"
 
+const slashedRoot = (root: string) => root + (root.endsWith("/") ? "" : "/")
+
 export const findFiles = ({
   proxyType,
   root,
@@ -11,5 +13,5 @@ export const findFiles = ({
   ignore,
 }: Settings): string[] =>
   proxyType === "file"
-    ? getFiles(`${root}${src}`, ignore)
-    : getDirectories(`${root}${src}`, ignore)
+    ? getFiles(`${slashedRoot(root)}${src}`, ignore)
+    : getDirectories(`${slashedRoot(root)}${src}`, ignore)

@@ -16,6 +16,16 @@ import { findFiles } from "../findFiles"
 const default_settings: any = { ignore: ["foo"], src: "src", root: "root/" }
 
 describe("utils/findFiles", () => {
+  test("should call have correct root", () => {
+    mockGetDir.mockReset()
+    findFiles(default_settings)
+    expect(mockGetDir).toHaveBeenCalledWith("root/src", ["foo"])
+  })
+  test("should call have correct root", () => {
+    mockGetDir.mockReset()
+    findFiles({ ...default_settings, root: "root" })
+    expect(mockGetDir).toHaveBeenCalledWith("root/src", ["foo"])
+  })
   test("should call getDirectories", () => {
     mockGetDir.mockReset()
     findFiles({ ...default_settings, proxyType: "folder" })
@@ -26,6 +36,7 @@ describe("utils/findFiles", () => {
     findFiles({ ...default_settings, proxyType: "folder" })
     expect(mockGetDir).toHaveBeenCalledWith("root/src", ["foo"])
   })
+
   test("should call getDirectories", () => {
     mockGetDir.mockReset()
     findFiles({ ...default_settings })

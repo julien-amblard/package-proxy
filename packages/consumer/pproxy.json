@@ -1,6 +1,6 @@
 {
   "packageName": "consumer",
-  "root": "src/",
+  "root": "src",
   "types": "lib",
   "proxify": [
     {
@@ -10,6 +10,14 @@
       "src": "folderProxy",
       "dest": "folderProxy_dest",
       "types": "custome_types_folder"
+    },
+    {
+      "src": "deep/folder",
+      "dest": "deepFolder"
+    },
+    {
+      "src": "folderProxy",
+      "dest": "deep/folder/dest"
     },
     {
       "src": "filesProxy",
