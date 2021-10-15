@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "description": "package test for package proxy",
   "scripts": {
-    "build": "rimraf ./lib && rimraf ./esm && tsc -p .",
+    "build:cjs": "rimraf lib && tsc --outDir lib --module commonjs",
+    "build:esm": "rimraf esm && tsc --outDir esm --module esnext",
+    "build": "yarn build:cjs && yarn build:esm",
     "proxify": "proxify write",
     "proxify:empty": "proxify",
     "proxify:error": "proxify --error",
@@ -26,12 +28,6 @@
     "package-proxy": "^0.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.15.4",
-    "@babel/core": "^7.15.5",
-    "@babel/polyfill": "^7.12.1",
-    "@babel/preset-env": "^7.15.4",
-    "@babel/preset-typescript": "^7.15.0",
-    "@babel/register": "^7.15.3",
     "@types/events": "^3.0.0",
     "@types/jest": "^27.0.1",
     "@types/node": "^16.9.1",

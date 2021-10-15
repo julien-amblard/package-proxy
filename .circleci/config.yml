@@ -72,17 +72,13 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
       - *persist
 
-  build-all:
+  build-package-proxy:
     <<: *defaults
     steps:
       - *attach
       - run:
           name: Run build
-          command: yarn build:ci
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+          command: yarn workspace package-proxy run build
       - *persist
 
   tests-package-proxy:
@@ -111,6 +107,20 @@ jobs:
       - run:
           name: test proxy clean
           command: yarn workspace consumer test:clean
+
+  tests-package-client:
+    <<: *defaults
+    steps:
+      - *attach
+      - run:
+          name: Run build
+          command: yarn build:ci
+      - run:
+          name: proxify consumer package
+          command: yarn workspace consumer proxify
+      - run:
+          name: test package client import from proxy
+          command: yarn workspace client test
 
   publish-canary:
     <<: *defaults
@@ -144,7 +154,7 @@ workflows:
     jobs:
       - install:
           <<: *test_tag_filter
-      - build-all:
+      - build-package-proxy:
           <<: *test_tag_filter
           requires:
             - install
@@ -156,12 +166,16 @@ workflows:
           <<: *test_tag_filter
           requires:
             - install
+      - tests-package-client:
+          <<: *test_tag_filter
+          requires:
+            - install
 
   publish-canary:
     jobs:
       - install:
           <<: *prod_tag_filter
-      - build-all:
+      - build-package-proxy:
           <<: *canary_tag_filter
           requires:
             - install
@@ -178,7 +192,7 @@ workflows:
           requires:
             - tests-package-proxy
             - tests-package-consumer
-            - build-all
+            - build-package-proxy
           <<: *canary_tag_filter
       - publish-canary:
           context: personal_packages_vars
@@ -190,7 +204,7 @@ workflows:
     jobs:
       - install:
           <<: *prod_tag_filter
-      - build-all:
+      - build-package-proxy:
           <<: *prod_tag_filter
           requires:
             - install
@@ -207,7 +221,7 @@ workflows:
           requires:
             - tests-package-proxy
             - tests-package-consumer
-            - build-all
+            - build-package-proxy
           <<: *prod_tag_filter
       - publish:
           context: personal_packages_vars

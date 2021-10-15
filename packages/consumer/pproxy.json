@@ -1,19 +1,19 @@
 {
-  "packageName": "foo",
+  "packageName": "consumer",
   "root": "src/",
   "types": "lib",
   "proxify": [
     {
-      "src": "components"
+      "src": "folderProxy"
     },
     {
-      "src": "bar",
-      "dest": "bar",
-      "types": "test"
+      "src": "folderProxy",
+      "dest": "folderProxy_dest",
+      "types": "custome_types_folder"
     },
     {
-      "src": "helpers",
-      "dest": "helpers",
+      "src": "filesProxy",
+      "dest": "filesProxy",
       "proxyType": "file",
       "esm": null
     }

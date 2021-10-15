@@ -1,0 +1,31 @@
+{
+  "name": "client",
+  "version": "0.0.0",
+  "description": "package test for package proxy",
+  "scripts": {
+    "test": "jest --ci --no-cache"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sl-julienamblard/package-proxy.git"
+  },
+  "author": "Julien Amblard",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sl-julienamblard/package-proxy/issues"
+  },
+  "homepage": "https://github.com/sl-julienamblard/package-proxy#readme",
+  "dependencies": {
+    "consumer": "^0.0.0"
+  },
+  "devDependencies": {
+    "@types/events": "^3.0.0",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.9.1",
+    "@types/rimraf": "^3.0.2",
+    "jest": "^27.1.0",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.2"
+  }
+}
