@@ -18,7 +18,7 @@
     "test:create": "yarn workspace consumer test:create",
     "test:clean": "yarn workspace consumer test:clean",
     "test:client": "yarn workspace consumer run proxify && yarn workspace client test && yarn workspace consumer run proxify:clean",
-    "ci": "yarn build && yarn test:package-proxy && yarn test:create && yarn test:clean && yarn test:client"
+    "ci": "lerna run build && yarn test:package-proxy && yarn test:create && yarn test:clean && yarn test:client"
   },
   "repository": {
     "type": "git",

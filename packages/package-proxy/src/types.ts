@@ -3,9 +3,9 @@
 export type ProxyType = "file" | "folder"
 
 export type FolderPath = {
-  esm?: string
-  cjs?: string
-  types?: string
+  esm?: string | false | null
+  cjs?: string | false | null
+  types?: string | false | null
 }
 
 export type DefaultSettings = {

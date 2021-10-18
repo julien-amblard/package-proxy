@@ -93,7 +93,6 @@ describe("cliCreate", () => {
       proxyType: "folder",
       root: "",
       src: "src",
-      types: "types",
     })
   })
 
@@ -156,7 +155,6 @@ describe("cliCreate", () => {
       proxyType: "folder",
       root: "",
       src: "src",
-      types: "types",
     })
   })
 
@@ -177,7 +175,6 @@ describe("cliCreate", () => {
       proxyType: "folder",
       root: "",
       src: "src",
-      types: "types",
     })
   })
 
@@ -198,7 +195,6 @@ describe("cliCreate", () => {
       proxyType: "folder",
       root: "",
       src: "src",
-      types: "types",
     })
   })
 
@@ -219,7 +215,6 @@ describe("cliCreate", () => {
       proxyType: "folder",
       root: "",
       src: "src",
-      types: "types",
     })
   })
 
@@ -240,7 +235,6 @@ describe("cliCreate", () => {
       proxyType: "folder",
       root: "customRoot",
       src: "src",
-      types: "types",
     })
   })
 
@@ -261,7 +255,6 @@ describe("cliCreate", () => {
       proxyType: "folder",
       root: "",
       src: "src",
-      types: "types",
     })
   })
 
@@ -282,7 +275,6 @@ describe("cliCreate", () => {
       proxyType: "folder",
       root: "",
       src: "src",
-      types: "types",
     })
   })
 
@@ -303,7 +295,6 @@ describe("cliCreate", () => {
       proxyType: "file",
       root: "",
       src: "src",
-      types: "types",
     })
   })
 
@@ -324,7 +315,6 @@ describe("cliCreate", () => {
       proxyType: "folder",
       root: "",
       src: "src",
-      types: "types",
     })
   })
 })

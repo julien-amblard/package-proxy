@@ -1,15 +1,29 @@
 {
   "packageName": "consumer",
   "root": "src",
-  "types": "lib",
   "proxify": [
     {
       "src": "folderProxy"
     },
     {
       "src": "folderProxy",
-      "dest": "folderProxy_dest",
-      "types": "custome_types_folder"
+      "cjs": "_lib",
+      "dest": "customLib"
+    },
+    {
+      "src": "folderProxy",
+      "cjs": "_lib",
+      "types": "types",
+      "dest": "customLibAndCustomTypes"
+    },
+    {
+      "src": "folderProxy",
+      "esm": "_esm",
+      "dest": "customEsm"
+    },
+    {
+      "src": "folderProxy",
+      "dest": "folderProxy_dest"
     },
     {
       "src": "deep/folder",
@@ -18,6 +32,10 @@
     {
       "src": "folderProxy",
       "dest": "deep/folder/dest"
+    },
+    {
+      "src": "filesProxy",
+      "proxyType": "file"
     },
     {
       "src": "filesProxy",

@@ -3,9 +3,8 @@ import { writeTemplate } from "../writeTemplate"
 
 const name = "name"
 const dest = "dest"
-const cjs = "cjs"
+const cjs = "lib"
 const esm = "esm"
-const types = "types"
 const src = "src"
 const packageName = "packageName"
 
@@ -19,7 +18,6 @@ describe("template/writeTemplate", () => {
           src,
           cjs,
           esm,
-          types,
           packageName,
         } as any,
       })
@@ -27,9 +25,75 @@ describe("template/writeTemplate", () => {
     expect(data).toEqual({
       name: "packageName/dest",
       private: true,
-      main: "../cjs/src/name/index.js",
+      main: "../lib/src/name/index.js",
+      module: "../esm/src/name/index.js",
+      types: "../lib/src/name/index.d.js",
+    })
+  })
+  test("should return correct content", () => {
+    const data = JSON.parse(
+      writeTemplate({
+        name,
+        dest,
+        settings: {
+          src,
+          cjs,
+          esm,
+          types: "types",
+          packageName,
+        } as any,
+      })
+    )
+    expect(data).toEqual({
+      name: "packageName/dest",
+      private: true,
+      main: "../lib/src/name/index.js",
       module: "../esm/src/name/index.js",
       types: "../types/src/name/index.d.js",
+    })
+  })
+
+  test("should return correct content", () => {
+    const data = JSON.parse(
+      writeTemplate({
+        name,
+        dest,
+        settings: {
+          src,
+          cjs,
+          esm,
+          types: null,
+          packageName,
+        } as any,
+      })
+    )
+    expect(data).toEqual({
+      name: "packageName/dest",
+      private: true,
+      main: "../lib/src/name/index.js",
+      module: "../esm/src/name/index.js",
+    })
+  })
+
+  test("should return correct content", () => {
+    const data = JSON.parse(
+      writeTemplate({
+        name,
+        dest,
+        settings: {
+          src,
+          cjs,
+          esm,
+          types: false,
+          packageName,
+        } as any,
+      })
+    )
+    expect(data).toEqual({
+      name: "packageName/dest",
+      private: true,
+      main: "../lib/src/name/index.js",
+      module: "../esm/src/name/index.js",
     })
   })
 
@@ -43,7 +107,6 @@ describe("template/writeTemplate", () => {
           src,
           cjs,
           esm,
-          types,
           packageName,
         } as any,
       })
@@ -51,9 +114,9 @@ describe("template/writeTemplate", () => {
     expect(data).toEqual({
       name: "packageName/dest",
       private: true,
-      main: "../cjs/src/name.js",
+      main: "../lib/src/name.js",
       module: "../esm/src/name.js",
-      types: "../types/src/name.d.js",
+      types: "../lib/src/name.d.js",
     })
   })
 
@@ -73,8 +136,9 @@ describe("template/writeTemplate", () => {
     expect(data).toEqual({
       name: "packageName/dest",
       private: true,
-      main: "../cjs/src/name/index.js",
+      main: "../lib/src/name/index.js",
       module: "../esm/src/name/index.js",
+      types: "../lib/src/name/index.d.js",
     })
   })
 
@@ -86,7 +150,6 @@ describe("template/writeTemplate", () => {
         settings: {
           src,
           esm,
-          types,
           packageName,
         } as any,
       })
@@ -95,7 +158,6 @@ describe("template/writeTemplate", () => {
       name: "packageName/dest",
       private: true,
       module: "../esm/src/name/index.js",
-      types: "../types/src/name/index.d.js",
     })
   })
 
@@ -107,7 +169,6 @@ describe("template/writeTemplate", () => {
         settings: {
           src,
           cjs,
-          types,
           packageName,
         } as any,
       })
@@ -115,8 +176,8 @@ describe("template/writeTemplate", () => {
     expect(data).toEqual({
       name: "packageName/dest",
       private: true,
-      main: "../cjs/src/name/index.js",
-      types: "../types/src/name/index.d.js",
+      main: "../lib/src/name/index.js",
+      types: "../lib/src/name/index.d.js",
     })
   })
 })

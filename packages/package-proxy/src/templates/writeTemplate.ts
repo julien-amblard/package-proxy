@@ -33,10 +33,17 @@ export const writeTemplate = ({
       .replace(/{dir}/g, settings.esm)
       .replace(/{file}/g, fileType)
 
-  if (settings.types)
-    packageJSON.types = filePath
-      .replace(/{dir}/g, settings.types)
-      .replace(/{file}/g, tsFileType)
+  if (settings.types !== false && settings.types !== null) {
+    if (settings.types) {
+      packageJSON.types = filePath
+        .replace(/{dir}/g, settings.types)
+        .replace(/{file}/g, tsFileType)
+    } else if (settings.cjs) {
+      packageJSON.types = filePath
+        .replace(/{dir}/g, settings.cjs)
+        .replace(/{file}/g, tsFileType)
+    }
+  }
 
   return JSON.stringify(packageJSON, null, "\t")
 }

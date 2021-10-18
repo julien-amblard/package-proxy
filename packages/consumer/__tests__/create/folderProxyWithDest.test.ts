@@ -1,8 +1,8 @@
 /** @format */
 import fs from "fs"
 
-const base = __dirname + "/../../"
-describe("should have correctly create folderProxyA proxy", () => {
+const base = __dirname + "/../../folderProxy_dest/"
+describe("should have correctly create folderProxyA proxy in folderProxy_dest folder", () => {
   test("should have create folderProxyA folder", () => {
     expect(fs.existsSync(base + "folderProxyA")).toBe(true)
   })
@@ -15,16 +15,16 @@ describe("should have correctly create folderProxyA proxy", () => {
       "utf8"
     )
     expect(JSON.parse(file)).toEqual({
-      main: "../lib/folderProxy/folderProxyA/index.js",
-      module: "../esm/folderProxy/folderProxyA/index.js",
-      name: "consumer/folderProxyA",
+      main: "../../lib/folderProxy/folderProxyA/index.js",
+      module: "../../esm/folderProxy/folderProxyA/index.js",
+      name: "consumer/folderProxy_dest/folderProxyA",
       private: true,
-      types: "../lib/folderProxy/folderProxyA/index.d.js",
+      types: "../../lib/folderProxy/folderProxyA/index.d.js",
     })
   })
 })
 
-describe("should have correctly create folderProxyB proxy", () => {
+describe("should have correctly create folderProxyB proxy in folderProxy_dest folder", () => {
   test("should have create folderProxyB folder", () => {
     expect(fs.existsSync(base + "folderProxyB")).toBe(true)
   })
@@ -37,11 +37,11 @@ describe("should have correctly create folderProxyB proxy", () => {
       "utf8"
     )
     expect(JSON.parse(file)).toEqual({
-      main: "../lib/folderProxy/folderProxyB/index.js",
-      module: "../esm/folderProxy/folderProxyB/index.js",
-      name: "consumer/folderProxyB",
+      main: "../../lib/folderProxy/folderProxyB/index.js",
+      module: "../../esm/folderProxy/folderProxyB/index.js",
+      name: "consumer/folderProxy_dest/folderProxyB",
       private: true,
-      types: "../lib/folderProxy/folderProxyB/index.d.js",
+      types: "../../lib/folderProxy/folderProxyB/index.d.js",
     })
   })
 })

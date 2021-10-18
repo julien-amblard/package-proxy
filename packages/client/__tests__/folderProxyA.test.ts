@@ -1,9 +1,9 @@
 /** @format */
 
-import { testFoo } from "../src"
+import { foo } from "consumer/folderProxyA"
 
 describe("import from proxify", () => {
   test("should return string 'bar'", () => {
-    expect(testFoo()).toEqual("bar")
+    expect(foo).toEqual("bar")
   })
 })
