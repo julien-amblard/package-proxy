@@ -2,6 +2,11 @@
   "name": "package-proxy",
   "version": "0.0.0",
   "description": "Proxify your npm package for easier imports",
+  "files": [
+    "lib",
+    "bin",
+    "LICENSE"
+  ],
   "bin": {
     "package-proxy": "bin/index.js",
     "proxify": "bin/index.js"
@@ -13,7 +18,8 @@
     "build": "rimraf ./lib && tsc -p .",
     "test": "jest --watch",
     "test:ci": "jest --collectCoverage --ci --silent --no-cache --maxWorkers=3",
-    "test:report": "codecov --token=$CODECOV_TOKEN"
+    "test:report": "codecov --token=$CODECOV_TOKEN",
+    "prepublishOnly": "yarn test:ci && yarn build"
   },
   "repository": {
     "type": "git",
