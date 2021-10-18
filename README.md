@@ -9,9 +9,9 @@ proxify your npm package for easier imports
 - [x] test clean proxy
 - [x] test write proxy
 - [x] update CI with consumer tests
-- [ ] test consumer package correct create proxy
-- [ ] test consumer package correct clean proxy
-- [ ] create client package who use consumer proxy
-- [ ] test client package
+- [x] test consumer package correct create proxy
+- [x] test consumer package correct clean proxy
+- [x] create client package who use consumer proxy
+- [x] test client package
 - [ ] DOC
 - [ ] publish
