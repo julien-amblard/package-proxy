@@ -112,6 +112,7 @@ In your root folder, create a `pproxy.json` file
     {
       "src": "folderToProxify"
     }
+  ]
 }
 ```
 
