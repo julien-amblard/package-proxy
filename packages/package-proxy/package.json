@@ -1,6 +1,6 @@
 {
   "name": "package-proxy",
-  "version": "0.0.0",
+  "version": "1.2.3",
   "description": "Proxify your npm package for easier imports",
   "files": [
     "lib",
