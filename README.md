@@ -13,5 +13,6 @@ proxify your npm package for easier imports
 - [x] test consumer package correct clean proxy
 - [x] create client package who use consumer proxy
 - [x] test client package
+- [ ] add ignorelist
 - [ ] DOC
 - [ ] publish
