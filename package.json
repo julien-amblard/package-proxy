@@ -32,5 +32,6 @@
   "homepage": "https://github.com/sl-julienamblard/package-proxy#readme",
   "devDependencies": {
     "lerna": "^4.0.0"
-  }
+  },
+  "version": "1.2.3"
 }
