@@ -43,7 +43,7 @@ aliases:
   - &versioning_package
     run:
       name: Versioning package
-      command: npm version $CURRENT_PACKAGE_VERSION --no-git-tag-version
+      command: yarn set-version $CURRENT_PACKAGE_VERSION
   - &print_informations
     run:
       name: Print package informations
