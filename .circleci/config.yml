@@ -68,7 +68,7 @@ jobs:
           command: yarn install
       - run:
           name: Install npm 7
-          command: npm i -g npm@7
+          command: npm i npm@7
       - run:
           name: NPM version
           command: npm -v
