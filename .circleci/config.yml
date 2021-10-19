@@ -43,7 +43,7 @@ aliases:
   - &versioning_package
     run:
       name: Versioning package
-      command: npm version $CURRENT_PACKAGE_VERSION --yes --no-git-tag-version
+      command: npm version $CURRENT_PACKAGE_VERSION --yes --no-git-tag-version workspace package-proxy
   - &print_informations
     run:
       name: Print package informations
