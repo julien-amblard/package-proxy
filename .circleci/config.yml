@@ -6,7 +6,7 @@ aliases:
   - &defaults
     working_directory: ~/repos
     docker:
-      - image: circleci/node:12.21.0
+      - image: circleci/node:14.18.1
 
   - &test_tag_filter
     filters:
