@@ -9,7 +9,7 @@ jest.mock("../createProxy", () => ({
 }))
 const mockLoad = jest.fn()
 
-jest.mock("../utils/LoadJSON", () => ({
+jest.mock("../utils/loadJSON", () => ({
   __esModule: true,
   loadConfigJSON: mockLoad,
 }))
