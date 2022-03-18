@@ -122,17 +122,17 @@ jobs:
           name: test package client import from proxy
           command: yarn workspace client test
 
-  dry-publish:
-    <<: *defaults
-    steps:
-      - *attach
-      - *auth_registry
-      - *save_package_informations
-      - *versioning_package
-      - *print_informations
-      - run:
-          name: test publishing
-          command: yarn workspace package-proxy publish --dry-run
+  # dry-publish:
+  #   <<: *defaults
+  #   steps:
+  #     - *attach
+  #     - *auth_registry
+  #     - *save_package_informations
+  #     - *versioning_package
+  #     - *print_informations
+  #     - run:
+  #         name: test publishing
+  #         command: yarn workspace package-proxy publish --dry-run
 
   publish-canary:
     <<: *defaults
@@ -182,14 +182,14 @@ workflows:
           <<: *test_tag_filter
           requires:
             - install
-      - dry-publish:
-          context: personal_packages_vars
-          <<: *test_tag_filter
-          requires:
-            - build-package-proxy
-            - tests-package-proxy
-            - tests-package-consumer
-            - tests-package-client
+      # - dry-publish:
+      #     context: personal_packages_vars
+      #     <<: *test_tag_filter
+      #     requires:
+      #       - build-package-proxy
+      #       - tests-package-proxy
+      #       - tests-package-consumer
+      #       - tests-package-client
 
   publish-canary:
     jobs:
