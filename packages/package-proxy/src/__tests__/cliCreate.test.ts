@@ -12,6 +12,7 @@ const mockLoad = jest.fn()
 jest.mock("../utils/loadJSON", () => ({
   __esModule: true,
   loadConfigJSON: mockLoad,
+  loadPackageJSON: jest.fn().mockReturnValue({ name: "name" }),
 }))
 import { cliCreate } from "../cliCreate"
 
