@@ -126,6 +126,7 @@ jobs:
     <<: *defaults
     steps:
       - *attach
+      - *auth_registry
       - run:
           name: test publishing
           command: yarn workspace package-proxy publish --dry-run
