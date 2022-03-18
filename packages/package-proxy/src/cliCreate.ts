@@ -10,7 +10,7 @@ export const cliCreate = (options: { config: string }) => {
     packageName,
     ...rest
   } = loadConfigJSON(options.config)
-  const nameFromPackageJson = loadPackageJSON()?.name
+  const { name: nameFromPackageJson } = loadPackageJSON()
 
   if (!nameFromPackageJson && !packageName) {
     errorLog(
