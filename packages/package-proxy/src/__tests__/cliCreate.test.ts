@@ -9,9 +9,9 @@ jest.mock("../createProxy", () => ({
 }))
 const mockLoad = jest.fn()
 
-jest.mock("../utils/loadJSON", () => ({
+jest.mock("../utils/LoadJSON", () => ({
   __esModule: true,
-  loadJSON: mockLoad,
+  loadConfigJSON: mockLoad,
 }))
 import { cliCreate } from "../cliCreate"
 

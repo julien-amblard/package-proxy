@@ -1,13 +1,21 @@
 /** @format */
 import { DEFAULT_SETTINGS } from "./constants"
-import { loadJSON, errorLog } from "./utils"
+import { loadConfigJSON, loadPackageJSON, errorLog } from "./utils"
 import { createProxy } from "./createProxy"
 
 export const cliCreate = (options: { config: string }) => {
-  const { proxify, root = "", ...rest } = loadJSON(options)
+  const {
+    proxify,
+    root = "",
+    packageName,
+    ...rest
+  } = loadConfigJSON(options.config)
+  const nameFromPackageJson = loadPackageJSON()?.name
 
-  if (!rest.packageName) {
-    errorLog('"packageName" is missing in config file')
+  if (!nameFromPackageJson && !packageName) {
+    errorLog(
+      "Cannot find package name. It possibly mean we cannot find your package.json file, or the `name` field was not provide. You also can provide the package name in your config file with the `pacakgeName` prop"
+    )
     return
   }
 
@@ -21,6 +29,12 @@ export const cliCreate = (options: { config: string }) => {
       errorLog('"proxify[x].src" is missing or is empty in config file')
       return
     }
-    createProxy({ ...DEFAULT_SETTINGS, root, ...rest, ...toProxify })
+    createProxy({
+      ...DEFAULT_SETTINGS,
+      root,
+      packageName: (packageName || nameFromPackageJson) as string,
+      ...rest,
+      ...toProxify,
+    })
   })
 }

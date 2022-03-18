@@ -1,10 +1,10 @@
 /** @format */
 
 import { cleanProxy } from "./cleanProxy"
-import { loadJSON, errorLog } from "./utils"
+import { loadConfigJSON, errorLog } from "./utils"
 
 export const cliClean = (options: { config: string }) => {
-  const { proxify, root = "", ...rest } = loadJSON(options)
+  const { proxify, root = "", ...rest } = loadConfigJSON(options.config)
 
   if (!Array.isArray(proxify) || proxify.length === 0) {
     errorLog('"proxify" is missing or is empty in config file')
