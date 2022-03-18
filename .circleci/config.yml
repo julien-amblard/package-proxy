@@ -127,6 +127,9 @@ jobs:
     steps:
       - *attach
       - *auth_registry
+      - *save_package_informations
+      - *versioning_package
+      - *print_informations
       - run:
           name: test publishing
           command: yarn workspace package-proxy publish --dry-run
