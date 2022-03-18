@@ -180,6 +180,7 @@ workflows:
           requires:
             - install
       - dry-publish:
+          context: personal_packages_vars
           <<: *test_tag_filter
           requires:
             - build-package-proxy
