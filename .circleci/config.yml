@@ -122,13 +122,13 @@ jobs:
           name: test package client import from proxy
           command: yarn workspace client test
 
-  fake-publish:
+  dry-publish:
     <<: *defaults
     steps:
       - *attach
       - run:
-          name: just an echo
-          command: echo "we can publish"
+          name: test publishing
+          command: yarn workspace package-proxy publish --dry-run
 
   publish-canary:
     <<: *defaults
@@ -178,7 +178,7 @@ workflows:
           <<: *test_tag_filter
           requires:
             - install
-      - fake-publish:
+      - dry-publish:
           <<: *test_tag_filter
           requires:
             - build-package-proxy
