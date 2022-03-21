@@ -1,6 +1,6 @@
 /** @format */
 
-import { filterTruthy } from "./filters"
+import { filterTruthy } from "../filters"
 
 export const buildRoot = (path: string): string =>
   path

@@ -1,8 +1,8 @@
 /** @format */
 
-import { Settings } from "../types"
-import { getDirectories } from "./getDirectories"
-import { getFiles } from "./getFiles"
+import { Settings } from "../../types"
+import { getDirectories } from "../getDirectories"
+import { getFiles } from "../getFiles"
 
 const slashedRoot = (root: string) => root + (root.endsWith("/") ? "" : "/")
 

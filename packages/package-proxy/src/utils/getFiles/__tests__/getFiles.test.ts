@@ -2,7 +2,7 @@
 
 import { getFiles } from "../getFiles"
 
-const source = __dirname + "/../../mocks/findDirAndFileTest"
+const source = __dirname + "/../../../mocks/findDirAndFileTest"
 const ignore = ["zat.txt", "taz.txt"]
 
 describe("utils/getFiles", () => {

@@ -2,11 +2,11 @@
 
 const mockGetDir = jest.fn()
 const mockGetFiles = jest.fn()
-jest.mock("../getDirectories", () => ({
+jest.mock("../../getDirectories", () => ({
   __esModule: true,
   getDirectories: mockGetDir,
 }))
-jest.mock("../getFiles", () => ({
+jest.mock("../../getFiles", () => ({
   __esModule: true,
   getFiles: mockGetFiles,
 }))

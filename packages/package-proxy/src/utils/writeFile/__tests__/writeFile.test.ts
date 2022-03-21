@@ -7,7 +7,7 @@ import rimraf from "rimraf"
 const timestamp = Date.now()
 const content = "foo " + timestamp
 const data = JSON.stringify({ foo: content })
-const dest = __dirname + "/../../mocks/writeTest"
+const dest = __dirname + "/../../../mocks/writeTest"
 const cb = jest.fn()
 
 const asyncWrite = () =>
