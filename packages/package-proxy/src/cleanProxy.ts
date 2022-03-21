@@ -10,9 +10,12 @@ export const cleanProxy = (settings: CleanSettings): void => {
   if (!!settings.dest) deleteFolder(`./${hightestFolder(settings.dest)}`)
   else {
     const _settings = { ...DEFAULT_SETTINGS, ...settings }
-    findFiles(_settings)
+    const { proxyType, src, root, ignore } = settings
+    findFiles({ proxyType, src, root, ignore })
       .filter(filterIndex)
-      .map(file => `./${cleanExt(file, _settings.proxyType)}`)
+      .map(
+        file => `./${cleanExt({ name: file, proxyType: _settings.proxyType })}`
+      )
       .forEach(deleteFolder)
   }
 }

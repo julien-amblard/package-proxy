@@ -6,4 +6,5 @@
 !jest.config.js
 !package.json
 !pproxy.json
+!pproxy.ts
 !tsconfig.json

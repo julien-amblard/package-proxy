@@ -18,7 +18,10 @@ export const createProxy = (settings: Settings): void => {
     .filter(filterIndex)
     .filter(filterJSON)
     .forEach(fileName => {
-      const cleanedFileName = cleanExt(fileName, settings.proxyType)
+      const cleanedFileName = cleanExt({
+        name: fileName,
+        proxyType: settings.proxyType,
+      })
       const destPath = getPath([settings.dest, cleanedFileName])
       buildPath(destPath)
 

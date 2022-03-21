@@ -15,5 +15,11 @@
     "resolveJsonModule": true
   },
   "include": ["**/*.ts"],
-  "exclude": ["node_modules", "lib", "**/__tests__/**", "**/*.test.*"]
+  "exclude": [
+    "node_modules",
+    "pproxy.ts",
+    "lib",
+    "**/__tests__/**",
+    "**/*.test.*"
+  ]
 }
