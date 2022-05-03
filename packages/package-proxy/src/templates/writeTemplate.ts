@@ -19,7 +19,7 @@ export const writeTemplate = ({
   }
 
   const fileType = settings.proxyType === "file" ? ".js" : "/index.js"
-  const tsFileType = settings.proxyType === "file" ? ".d.js" : "/index.d.js"
+  const tsFileType = settings.proxyType === "file" ? ".d.ts" : "/index.d.ts"
 
   const filePath = `${root}{dir}/${settings.src}/${name}{file}`
 

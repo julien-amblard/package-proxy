@@ -18,7 +18,7 @@ describe("should have correctly create filesProxyA proxy", () => {
       main: "../../lib/filesProxy/filesProxyA.js",
       name: "consumer/filesProxy/filesProxyA",
       private: true,
-      types: "../../lib/filesProxy/filesProxyA.d.js",
+      types: "../../lib/filesProxy/filesProxyA.d.ts",
     })
   })
 })
@@ -39,7 +39,7 @@ describe("should have correctly create filesProxyB proxy", () => {
       main: "../../lib/filesProxy/filesProxyB.js",
       name: "consumer/filesProxy/filesProxyB",
       private: true,
-      types: "../../lib/filesProxy/filesProxyB.d.js",
+      types: "../../lib/filesProxy/filesProxyB.d.ts",
     })
   })
 })

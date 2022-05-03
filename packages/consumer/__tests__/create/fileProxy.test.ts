@@ -19,7 +19,7 @@ describe("should have correctly create filesProxyA proxy", () => {
       module: "../esm/filesProxy/filesProxyA.js",
       name: "consumer/filesProxyA",
       private: true,
-      types: "../lib/filesProxy/filesProxyA.d.js",
+      types: "../lib/filesProxy/filesProxyA.d.ts",
     })
   })
 })
@@ -41,7 +41,7 @@ describe("should have correctly create filesProxyB proxy", () => {
       module: "../esm/filesProxy/filesProxyB.js",
       name: "consumer/filesProxyB",
       private: true,
-      types: "../lib/filesProxy/filesProxyB.d.js",
+      types: "../lib/filesProxy/filesProxyB.d.ts",
     })
   })
 })

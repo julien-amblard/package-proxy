@@ -19,7 +19,7 @@ describe("should have correctly create folderProxyA proxy", () => {
       module: "../esm/folderProxy/folderProxyA/index.js",
       name: "consumer/folderProxyA",
       private: true,
-      types: "../lib/folderProxy/folderProxyA/index.d.js",
+      types: "../lib/folderProxy/folderProxyA/index.d.ts",
     })
   })
 })
@@ -41,7 +41,7 @@ describe("should have correctly create folderProxyB proxy", () => {
       module: "../esm/folderProxy/folderProxyB/index.js",
       name: "consumer/folderProxyB",
       private: true,
-      types: "../lib/folderProxy/folderProxyB/index.d.js",
+      types: "../lib/folderProxy/folderProxyB/index.d.ts",
     })
   })
 })

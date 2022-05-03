@@ -19,7 +19,7 @@ describe("should have correctly create folderProxyA proxy in deep/folder/dest", 
       module: "../../../../esm/folderProxy/folderProxyA/index.js",
       name: "consumer/deep/folder/dest/folderProxyA",
       private: true,
-      types: "../../../../lib/folderProxy/folderProxyA/index.d.js",
+      types: "../../../../lib/folderProxy/folderProxyA/index.d.ts",
     })
   })
 })
@@ -41,7 +41,7 @@ describe("should have correctly create folderProxyB proxy in deep/folder/dest", 
       module: "../../../../esm/folderProxy/folderProxyB/index.js",
       name: "consumer/deep/folder/dest/folderProxyB",
       private: true,
-      types: "../../../../lib/folderProxy/folderProxyB/index.d.js",
+      types: "../../../../lib/folderProxy/folderProxyB/index.d.ts",
     })
   })
 })

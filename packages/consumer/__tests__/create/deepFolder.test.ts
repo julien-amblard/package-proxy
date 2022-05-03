@@ -19,7 +19,7 @@ describe("should have correctly create deepFolderA proxy from deep/folder", () =
       module: "../../esm/deep/folder/deepFolderA/index.js",
       name: "consumer/deepFolder/deepFolderA",
       private: true,
-      types: "../../lib/deep/folder/deepFolderA/index.d.js",
+      types: "../../lib/deep/folder/deepFolderA/index.d.ts",
     })
   })
 })
@@ -41,7 +41,7 @@ describe("should have correctly create deepFolderB proxy from deep/folder", () =
       module: "../../esm/deep/folder/deepFolderB/index.js",
       name: "consumer/deepFolder/deepFolderB",
       private: true,
-      types: "../../lib/deep/folder/deepFolderB/index.d.js",
+      types: "../../lib/deep/folder/deepFolderB/index.d.ts",
     })
   })
 })

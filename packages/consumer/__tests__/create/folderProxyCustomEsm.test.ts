@@ -19,7 +19,7 @@ describe("should have correctly create folderProxyA proxy with custom esm dest",
       module: "../../_esm/folderProxy/folderProxyA/index.js",
       name: "consumer/customEsm/folderProxyA",
       private: true,
-      types: "../../lib/folderProxy/folderProxyA/index.d.js",
+      types: "../../lib/folderProxy/folderProxyA/index.d.ts",
     })
   })
 })
@@ -41,7 +41,7 @@ describe("should have correctly create folderProxyB proxy with custom esm dest",
       module: "../../_esm/folderProxy/folderProxyB/index.js",
       name: "consumer/customEsm/folderProxyB",
       private: true,
-      types: "../../lib/folderProxy/folderProxyB/index.d.js",
+      types: "../../lib/folderProxy/folderProxyB/index.d.ts",
     })
   })
 })

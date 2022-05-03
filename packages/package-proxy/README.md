@@ -91,7 +91,7 @@ More precisely, it will create a `package.json` file like this:
   "private": true,
   "main": "../lib/path/to/module/foo/index.js",
   "module": "../esm/path/to/module/foo/index.js",
-  "types": "../lib/path/to/module/foo/index.d.js"
+  "types": "../lib/path/to/module/foo/index.d.ts"
 }
 ```
 

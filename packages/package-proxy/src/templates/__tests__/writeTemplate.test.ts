@@ -27,7 +27,7 @@ describe("template/writeTemplate", () => {
       private: true,
       main: "../lib/src/name/index.js",
       module: "../esm/src/name/index.js",
-      types: "../lib/src/name/index.d.js",
+      types: "../lib/src/name/index.d.ts",
     })
   })
   test("should return correct content", () => {
@@ -49,7 +49,7 @@ describe("template/writeTemplate", () => {
       private: true,
       main: "../lib/src/name/index.js",
       module: "../esm/src/name/index.js",
-      types: "../types/src/name/index.d.js",
+      types: "../types/src/name/index.d.ts",
     })
   })
 
@@ -116,7 +116,7 @@ describe("template/writeTemplate", () => {
       private: true,
       main: "../lib/src/name.js",
       module: "../esm/src/name.js",
-      types: "../lib/src/name.d.js",
+      types: "../lib/src/name.d.ts",
     })
   })
 
@@ -138,7 +138,7 @@ describe("template/writeTemplate", () => {
       private: true,
       main: "../lib/src/name/index.js",
       module: "../esm/src/name/index.js",
-      types: "../lib/src/name/index.d.js",
+      types: "../lib/src/name/index.d.ts",
     })
   })
 
@@ -177,7 +177,7 @@ describe("template/writeTemplate", () => {
       name: "packageName/dest",
       private: true,
       main: "../lib/src/name/index.js",
-      types: "../lib/src/name/index.d.js",
+      types: "../lib/src/name/index.d.ts",
     })
   })
 })
