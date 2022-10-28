@@ -21,7 +21,10 @@ export const writeTemplate = ({
   const fileType = settings.proxyType === "file" ? ".js" : "/index.js"
   const tsFileType = settings.proxyType === "file" ? ".d.ts" : "/index.d.ts"
 
-  const filePath = `${root}{dir}/${settings.src}/${name}{file}`
+  const filePath = `${root}{dir}/${settings.src.replace(
+    /^\/$/,
+    ""
+  )}/${name}{file}`
 
   if (settings.cjs)
     packageJSON.main = filePath
