@@ -25,7 +25,7 @@ export const cliCreate = (options: { config: string }) => {
   }
 
   proxify.forEach(toProxify => {
-    if (!toProxify.src) {
+    if (typeof toProxify.src !== "undefined") {
       errorLog('"proxify[x].src" is missing or is empty in config file')
       return
     }
